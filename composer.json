@@ -37,7 +37,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DiogoGPinto\\FilamentPageContext\\": "src/"
+            "DiogoGPinto\\FilamentPageContext\\": "src/",
         }
     },
     "autoload-dev": {
@@ -57,6 +57,16 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DiogoGPinto\\FilamentPageContext\\FilamentPageContextServiceProvider"
+            ],
+            "aliases": {
+                "FilamentPageContext": "DiogoGPinto\\FilamentPageContext\\Facades\\FilamentPageContext"
+            }
         }
     },
     "minimum-stability": "stable",
