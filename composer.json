@@ -15,7 +15,6 @@
     "authors": [
         {
             "name": "Diogo Pinto",
-            "email": "diogopinto@geridoc.pt",
             "role": "Developer"
         }
     ],
@@ -38,8 +37,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DiogoGPinto\\FilamentPageContext\\": "src/",
-            "DiogoGPinto\\FilamentPageContext\\Database\\Factories\\": "database/factories/"
+            "DiogoGPinto\\FilamentPageContext\\": "src/"
         }
     },
     "autoload-dev": {
@@ -61,16 +59,6 @@
             "phpstan/extension-installer": true
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "DiogoGPinto\\FilamentPageContext\\FilamentPageContextServiceProvider"
-            ],
-            "aliases": {
-                "FilamentPageContext": "DiogoGPinto\\FilamentPageContext\\Facades\\FilamentPageContext"
-            }
-        }
-    },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
