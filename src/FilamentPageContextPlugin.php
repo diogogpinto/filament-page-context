@@ -1,15 +1,15 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace DiogoGPinto\FilamentPageContext;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class FilamentPageContextPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'filament-page-context';
     }
 
     public function register(Panel $panel): void

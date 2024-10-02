@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace DiogoGPinto\FilamentPageContext\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentPageContextCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-page-context';
 
     public $description = 'My command';
 
