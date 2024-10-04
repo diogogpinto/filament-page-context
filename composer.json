@@ -37,7 +37,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DiogoGPinto\\FilamentPageContext\\": "src/",
+            "DiogoGPinto\\FilamentPageContext\\": "src/"
         }
     },
     "autoload-dev": {
