@@ -5,7 +5,6 @@ namespace DiogoGPinto\FilamentPageContext;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Route;
 
 class FilamentPageContext
 {
@@ -13,19 +12,12 @@ class FilamentPageContext
 
     public string $pageTitle = '';
 
-    private mixed $controller = null;
-
     private mixed $resource = null;
 
     private ?Model $record = null;
 
     public function __construct()
     {
-        if (property_exists($this, 'controller')) {
-            $this->controller = Route::current()->getController();
-        } else {
-            return;
-        }
         $this->generateBreadcrumbs();
         $this->setPageTitle();
     }
@@ -66,8 +58,8 @@ class FilamentPageContext
 
     protected function addControllerBreadcrumb(): void
     {
-        if (method_exists($this->controller, 'getBreadcrumb')) {
-            $this->breadcrumbs[] = $this->controller->getBreadcrumb();
+        if (method_exists(request()->route()->controller, 'getBreadcrumb')) {
+            $this->breadcrumbs[] = request()->route()->controller->getBreadcrumb();
         }
     }
 
@@ -92,11 +84,8 @@ class FilamentPageContext
 
     protected function getResource(): ?Resource
     {
-        if (method_exists($this->controller, 'getModel') && ! empty($this->controller)) {
-
-            $model = $this->controller->getModel();
-
-            return new (filament()->getModelResource($model));
+        if (method_exists(request()->route(), 'getController') && method_exists(request()->route()->getController(), 'getResource')) {
+            return new (request()->route()->getController()->getResource());
         }
 
         return null;
@@ -116,8 +105,8 @@ class FilamentPageContext
 
     protected function getDefaultTitle(): string
     {
-        if (method_exists($this->controller, 'getTitle')) {
-            return $this->controller->getTitle();
+        if (method_exists(request()->route()->controller, 'getTitle')) {
+            return request()->route()->controller->getTitle();
         }
 
         return $this->resource::getTitleCaseModelLabel();
@@ -127,7 +116,7 @@ class FilamentPageContext
     {
         $this->record = $this->resource::resolveRecordRouteBinding($key);
         if ($this->record === null) {
-            throw (new ModelNotFoundException)->setModel($this->controller->getModel(), [$key]);
+            throw (new ModelNotFoundException)->setModel(request()->route()->controller->getModel(), [$key]);
         }
     }
 }
