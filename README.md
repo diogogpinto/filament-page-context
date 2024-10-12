@@ -23,7 +23,7 @@ composer require diogogpinto/filament-page-context
 
 That's it. Once you install this plugin, the FilamentPageContext Service Provider will be injected automatically into Laravel Service Providers and extend your filament() method.
 
-### Getting Filament's current request breadrcrumbs
+### Getting Filament's current request breadcrumbs
 
 ```php
 $breadcrumbs = filament()->pageContext()->breadcrumbs;
@@ -41,7 +41,7 @@ $pageTitle = filament()->pageContext()->pageTitle;
 
 This is a request I've been getting lately that will have its own plugin really soon. Until then, you can follow the guide below:
 
-1. Create a new view (resources/views/topbar-breadrcumbs.php) and add the following code:
+1. Create a new view (resources/views/topbar-breadcrumbs.php) and add the following code:
 
 ```php
 @props([
@@ -53,6 +53,8 @@ This is a request I've been getting lately that will have its own plugin really 
 
 2. Add the following snippet to your AppServiceProvider.php
 ```php
+use Illuminate\View\View;
+
 /**
  * Bootstrap any application services.
  *
