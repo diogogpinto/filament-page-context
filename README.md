@@ -21,18 +21,7 @@ composer require diogogpinto/filament-page-context
 
 ## Usage
 
-Add the plugin to your Panel Provider
-
-```php
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        //your other methods
-        ->plugins([
-            \DiogoGPinto\FilamentPageContext\FilamentPageContextPlugin::make();
-        ]);
-}
-```
+That's it. Once you install this plugin, the FilamentPageContext Service Provider will be injected automatically into Laravel Service Providers and extend your filament() method.
 
 ### Getting Filament's current request breadrcrumbs
 
@@ -52,8 +41,7 @@ $pageTitle = filament()->pageContext()->pageTitle;
 
 This is a request I've been getting lately that will have its own plugin really soon. Until then, you can follow the guide below:
 
-1. Register the plugin in your panel (see above)
-2. Create a new view (resources/views/topbar-breadrcumbs.php) and add the following code:
+1. Create a new view (resources/views/topbar-breadrcumbs.php) and add the following code:
 
 ```php
 @props([
@@ -63,7 +51,7 @@ This is a request I've been getting lately that will have its own plugin really 
 <x-filament::breadcrumbs class="text-sm/[6px]" :breadcrumbs="$breadcrumbs"/>
 ```
 
-3. Add the following snipper to your AppServiceProvider.php
+2. Add the following snippet to your AppServiceProvider.php
 ```php
 /**
  * Bootstrap any application services.
@@ -79,6 +67,8 @@ public function boot()
     );
 }
 ```
+
+> :warning: **Warning:** This is just an example of how to inject breadcrumbs in the topbar. You should be aware that this code isn't responsive and can mess your mobile functionality.
 
 ## Testing
 
@@ -101,6 +91,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Diogo Pinto](https://github.com/diogogpinto)
+- [Adam Weston](https://github.com/awcodes) for the mentorship and all the help
 - Special thanks to [Tony Partidge](https://github.com/tonypartridge) and [Fady Mondy](https://github.com/3x1io) for all the help over Filament Discord
 - [Geridoc](https://www.geridoc.pt) for giving me the opportunity to share our code to the public
 - [All Contributors](../../contributors)

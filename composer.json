@@ -63,10 +63,7 @@
         "laravel": {
             "providers": [
                 "DiogoGPinto\\FilamentPageContext\\FilamentPageContextServiceProvider"
-            ],
-            "aliases": {
-                "FilamentPageContext": "DiogoGPinto\\FilamentPageContext\\Facades\\FilamentPageContext"
-            }
+            ]
         }
     },
     "minimum-stability": "stable",
