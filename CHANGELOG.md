@@ -2,6 +2,10 @@
 
 All notable changes to `filament-page-context` will be documented in this file.
 
+## v1.0.6 - 2025-02-19
+
+**Full Changelog**: https://github.com/diogogpinto/filament-page-context/compare/v1.0.5...v1.0.6
+
 ## v1.0.5 - 2024-10-12
 
 **Full Changelog**: https://github.com/diogogpinto/filament-page-context/compare/v1.0.4...v1.0.5
