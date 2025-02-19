@@ -2,8 +2,6 @@
 
 namespace DiogoGPinto\FilamentPageContext;
 
-use DiogoGPinto\FilamentPageContext\CustomFilamentManager;
-use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -22,5 +20,4 @@ class FilamentPageContextServiceProvider extends PackageServiceProvider
             return new CustomFilamentManager($app);
         });
     }
-
 }
